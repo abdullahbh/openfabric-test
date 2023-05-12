@@ -1,34 +1,21 @@
-# AI Junior Developer (Intern) Test 
-Welcome! and thank you for applying! 
+# AI Chatbot for Answering Science Questions
 
-## Requirement
-The current project has the blueprint structure of an AI App. 
+This project aims to implement an NLP chatbot using the GPT-Neo language model for answering science-related questions. The implementation is done in Python programming language, and the code is provided in the form of a Python script.
 
-Your mission is to implement an 💬NLP chatbot **answering questions about science**. 
+## Requirements
 
-You will add your logic to the `main.py` file inside the `execute` function. 
-```python
-def execute(request: SimpleText, ray: OpenfabricExecutionRay) -> SimpleText:
-    output = []
-    for text in request.text:        
-        response = '' # <<< --Your magic goes here
-        output.append(response)
+The implementation requires the following libraries to be installed:
 
-    return SimpleText(dict(text=output))
-```
-## Constraints and restrictions
-You are free to use any package or library you see feet as long as you follow these rules:
-* 👎 You can't call any external service (e.g. chatGPT) 
-* 👎 You can't copy and paste from other peoples work 
+* `transformers`: a library for Natural Language Processing tasks, including pre-trained models and fine-tuning tools.
+* `openfabric_pysdk`: a library for developing OpenAI Fabric-based applications.
+* `time`: a built-in library for time-related functions.
 
-## Run
-The application can be executed in two different ways:
-* locally by running the `start.sh` 
-* on in a docker container using `Dockerfile` 
+The implementation also assumes that the GPT-Neo-125M model has been downloaded and available for use. The tokenizer and the model are instantiated using the `AutoTokenizer` and `AutoModelForCausalLM` classes provided by the `transformers` library.
 
-## Submission
-Your solution must be uploaded on GitHub, and submit us the link in **max 1 week** after receiving the task.
+## Usage
 
-## Note
-Keep in mind that this is the project that will be used to evaluate your skills.
-So we do expect you to make sure that the app is fully functional and doesn't have any obvious missing pieces.
+The chatbot is designed to respond to science-related questions. It uses the `execute` function as a callback function that takes in a `SimpleText` object as input and returns another `SimpleText` object containing the bot's response(s).
+
+When called, the `execute` function processes the input text by tokenizing it using the `tokenizer` object, then generates a response using the `model` object. The response is decoded back to text format and appended to the `output` list.
+
+The `max_length`, `num_return_sequences`, `no_repeat_ngram_size`, and `early_stopping` arguments in the `model.generate()` method determine the length and quality of the generated response.
