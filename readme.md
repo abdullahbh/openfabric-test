@@ -1,3 +1,5 @@
+![chatbot_hero_1](https://github.com/abdullahbh/openfabric-test/assets/75631205/d4b797af-4d1f-4cc5-93cb-457a52d1b2b5)
+
 # AI Chatbot for Answering Science Questions
 
 This project aims to implement an NLP chatbot using the GPT-Neo language model for answering science-related questions. The implementation is done in Python programming language, and the code is provided in the form of a Python script.
